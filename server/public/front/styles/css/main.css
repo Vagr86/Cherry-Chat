@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
-html, body, main, .login-screen, .register-screen, .profile-screen {
+html, body, main, .login-screen, .register-screen, .profile-screen, .chat-screen {
   width: 100%;
   height: 100%;
 }
@@ -21,14 +21,14 @@ h1 {
   color: #731121;
 }
 
-.login-screen, .register-screen, .profile-screen {
+.login-screen, .register-screen, .profile-screen, .chat-screen {
   position: relative;
   background: url(../../img/background/cherry.jpg) center fixed;
   background-size: cover;
   height: 100%;
 }
 
-.login-screen:before, .register-screen:before, .profile-screen:before {
+.login-screen:before, .register-screen:before, .profile-screen:before, .chat-screen:before {
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
   height: 100%;
@@ -456,6 +456,62 @@ select option:first-child {
   outline: none !important;
 }
 
+.text-ellipsis, .chat-screen section .contacts-wrapper .contact .user-details .user-name, .chat-screen section .contacts-wrapper .contact .user-details .last-msg {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chat-screen {
+  position: absolute;
+  height: 100%;
+}
+.chat-screen section {
+  height: 100%;
+  overflow: hidden;
+}
+.chat-screen section .contacts-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+}
+.chat-screen section .contacts-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-screen section .contacts-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-screen section .contacts-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+.chat-screen section .contacts-wrapper .contact {
+  padding: 5px 10px;
+  margin: 1px 5px 0 0;
+  box-sizing: border-box;
+}
+.chat-screen section .contacts-wrapper .contact.active, .chat-screen section .contacts-wrapper .contact:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+.chat-screen section .contacts-wrapper .contact .prof-pic {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+}
+.chat-screen section .contacts-wrapper .contact .user-details {
+  width: 80%;
+  padding-left: 15px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+.chat-screen section .contacts-wrapper .contact .user-details .user-name {
+  color: #fff;
+}
+.chat-screen section .contacts-wrapper .contact .user-details .last-msg {
+  color: #CACACA;
+}
+
 footer {
   position: absolute;
   top: 95%;
@@ -470,7 +526,7 @@ footer .copy-right-text .copy-right {
 }
 
 @media (max-width: 335px) {
-  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center {
+  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center, .chat-screen .login-center {
     padding: 0 20px;
     top: 20%;
   }
@@ -566,7 +622,7 @@ footer .copy-right-text .copy-right {
   }
 }
 @media (min-width: 336px) and (max-width: 480px) {
-  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center {
+  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center, .chat-screen .login-center {
     margin: 0 30px;
     top: 22%;
   }
@@ -668,7 +724,7 @@ footer .copy-right-text .copy-right {
   }
 }
 @media (max-width: 480px) and (min-height: 750px) {
-  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center {
+  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center, .chat-screen .login-center {
     margin: 0 30px;
     top: 24%;
   }
@@ -731,10 +787,10 @@ footer .copy-right-text .copy-right {
   }
 }
 @media (min-width: 480px) and (max-width: 767px) and (max-height: 710px) {
-  .login-screen, .register-screen, .profile-screen {
+  .login-screen, .register-screen, .profile-screen, .chat-screen {
     height: 145%;
   }
-  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center {
+  .login-screen .login-center, .register-screen .login-center, .profile-screen .login-center, .chat-screen .login-center {
     top: 10%;
     margin: 0 50px;
   }
