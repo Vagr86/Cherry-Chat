@@ -1,0 +1,57 @@
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chat-screen {
+  @extend .login-screen;
+  position: absolute;
+  height: 100%;
+  section {
+    height: 100%;
+    overflow: hidden;
+    .contacts-wrapper {
+      max-height: 100%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $placeholder-color;
+        outline: 1px solid slategrey;
+        border-radius: 10px;
+      }
+      .contact {
+        &.active, &:hover {
+          background: $placeholder-color;
+          border-radius: 10px;
+        }
+        padding: 5px 10px;
+        margin: 1px 5px 0 0;
+        box-sizing: border-box;
+        .prof-pic {
+          @include size(55px, 55px);
+          object-fit: cover;
+        }
+        .user-details {
+          width: 80%;
+          padding-left: 15px;
+          margin-top: 8px;
+          box-sizing: border-box;
+          .user-name {
+            @extend .text-ellipsis;
+            color: $white;
+          }
+          .last-msg {
+            @extend .text-ellipsis;
+            color: #CACACA;
+          }
+        }
+      }
+    }
+  }
+}
