@@ -33,5 +33,5 @@ module.exports = [
     url: '*',
     method: 'get',
     handler: './handlers/error'
-  },
+  }
 ];
