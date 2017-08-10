@@ -1,5 +1,5 @@
 const Users = require('../../core/db/models/users');
-const crypto=require('crypto');
+const crypto = require('crypto');
 
 class UsersService {
 
@@ -24,27 +24,30 @@ class UsersService {
 
             this.Users.create({
                 email: email,
-                password: crypto.createHmac('sha256',password ).digest('hex'),
+                password: crypto.createHmac('sha256', password).digest('hex'),
                 fullName: options.fullName,
                 gender: options.gender,
-                date:{
-                    year:options.date.year,
-                    month:options.date.month,
-                    day:options.date.day
+                date: {
+                    year: options.date.year,
+                    month: options.date.month,
+                    day: options.date.day
                 }
             }).then((doc) => {
                 return resolve(UsersService.generateUserResponseObject(doc));
             }).catch((err) => {
-                return reject(err);
+                return reject('err');
             })
         })
     }
 
-    getValue(id) {
+    getUserData(email, password) {
+        password = crypto.createHmac('sha256', password).digest('hex');
         return new Promise((resolve, reject) => {
-            this.Users.findOne({_id: id}).then((users) => {
-                return resolve(UsersService.generateUserResponseObject(users));
-            }).catch(err => reject('Error getting users'));
+            this.Users.findOne({email: email, password: password})
+                .then((users) => {
+                    return resolve(UsersService.generateUserResponseObject(users));
+                })
+                .catch(err => reject('Error getting users'));
         })
     }
 
@@ -55,9 +58,9 @@ class UsersService {
             email: user.email,
             gender: user.gender,
             date: {
-                year: user.year,
-                month: user.month,
-                day: user.day
+                year: user.date.year,
+                month: user.date.month,
+                day: user.date.day
             },
             photo: user.photo
         }

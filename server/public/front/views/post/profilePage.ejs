@@ -79,17 +79,17 @@
                         <div class="input-group input-relative">
                             <div class="col-xs-4 select-date select-year">
                                 <select name="year" class="selectpicker" id="profileYears">
-                                    <option value="<%= user.year %>"><%= user.year %></option>
+                                    <option value="<%= user.date.year %>"><%= user.date.year %></option>
                                 </select>
                             </div>
                             <div class="col-xs-5 select-date select-month">
                                 <select name="month" class="selectpicker" id="profileMonths">
-                                    <option value="<%= user.month %>"><%= user.month %></option>
+                                    <option value="<%= user.date.month %>"><%= user.date.month %></option>
                                 </select>
                             </div>
                             <div class="col-xs-3 select-date select-day">
                                 <select name="day" class="selectpicker" id="profileDays">
-                                    <option value="<%= user.day %>"><%= user.day %></option>
+                                    <option value="<%= user.date.day %>"><%= user.date.day %></option>
                                 </select>
                             </div>
                             <p class="error-date"></p>

@@ -35,9 +35,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
+    "express-session": "^1.15.4",
+    "find-port": "^2.0.1",
     "i18n-express": "^1.1.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
